@@ -66,12 +66,7 @@ app.all('*', function (req, res, next) {
     // Prepares the response
     res.status(mirrorCode).set(responseHeaders);
 
-    // Appends the full request or only the request body if wanted
-    if (mirrorRequest) {
-        res.json(request);
-    } else if (mirrorBody) {
-        res.send(req.body);
-    }
+    res.json(request);
 
     // Flushes!
     res.end();
